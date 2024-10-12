@@ -36,13 +36,30 @@ const App = () => {
   };
 
   return (
-    <Container>
-      <div className="d-flex justify-content-around">
-        <Filter onFilterChange={handleFilterChange} />
-        <AddMovie addMovie={addMovieHandler} />
-      </div>
-      <MovieLIst movies={filteredMovies} />
-    </Container>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Container>
+              <div className="d-flex justify-content-around">
+                <Filter onFilterChange={handleFilterChange} />
+                <AddMovie addMovie={addMovieHandler} />
+              </div>
+              <MovieLIst movies={filteredMovies} />
+            </Container>
+          }
+        ></Route>
+        <Route
+          path="/description/:title"
+          element={<DescriptionPage movies={filteredMovies} />}
+        />
+        <Route
+          path="/trailer/:title"
+          element={<TrailerPage movies={filteredMovies} />}
+        />
+      </Routes>
+    </Router>
   );
 };
 
