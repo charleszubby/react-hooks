@@ -4,6 +4,9 @@ import AddMovie from "./components/AddMovie";
 import { Container } from "react-bootstrap";
 import Filter from "./components/Filter";
 import { useState } from "react";
+import DescriptionPage from "./pages/DescriptionPage";
+import TrailerPage from "./pages/TrailerPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [originalMovies, setOriginalMovies] = useState(movies);
